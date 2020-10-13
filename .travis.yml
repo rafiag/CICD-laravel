@@ -20,9 +20,9 @@ jobs:
       script: 
       - travis_retry composer self-update
       # - travis_retry composer config -g repo.packagist composer https://repo.packagist.org
-      # - travis_retry composer install --prefer-source --no-interaction
-      # - cp .env.example .env
-      # - php artisan key:generate
+      - travis_retry composer install --prefer-source --no-interaction
+      - cp .env.example .env
+      - php artisan key:generate
       - vendor/bin/phpunit tests/Feature/ExampleTest.php
     # melakukan build images dan publish ke docker hub
     - stage: "Build Docker Image"
